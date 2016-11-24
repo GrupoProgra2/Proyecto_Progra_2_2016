@@ -11,17 +11,20 @@ package Proyecto;
  */
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.ImageIcon;
 public class PanelImagen extends javax.swing.JPanel {
-public PanelImagen(){
-this.setSize(600,400);
-}
+ private Image imagen;
+    public PanelImagen(String image){
+         imagen = new ImageIcon(getClass().getResource(image)).getImage();
+    this.setSize(400,300);
+    }
+ 
 @Override
-public void paintComponent (Graphics g){
-Dimension tamanio = getSize();
-ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/imagenes/Background.jpg"));
-g.drawImage(imagenFondo.getImage(),0,0,tamanio.width, tamanio.height, null);
-setOpaque(false);
-super.paintComponent(g);
-}
+    public void paint(Graphics g) {
+        Dimension tamanio = getSize();    
+        g.drawImage(imagen, 0, 0, tamanio.width, tamanio.height,this);
+        setOpaque(false);
+        super.paint(g);
+    }    
 }

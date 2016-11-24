@@ -13,16 +13,18 @@ import javax.swing.ImageIcon;
  */
     
 public class PanelImagen extends javax.swing.JPanel {
-public PanelImagen(){
-this.setSize(400,280);
-}
-@Override
-public void paintComponent (Graphics g){
-Dimension tamanio = getSize();
 ImageIcon imagenFondo = new ImageIcon(getClass().getResource("/imagenes/Background.jpg"));
-g.drawImage(imagenFondo.getImage(),0,0,tamanio.width, tamanio.height, null);
-setOpaque(false);
-super.paintComponent(g);
-}
+    public PanelImagen(String image){
+        imagenFondo = new ImageIcon(getClass().getResource(image));
+        this.setSize(400,280);
+    }
+    @Override
+    public void paintComponent (Graphics g){
+        Dimension tamanio = getSize();
+
+        g.drawImage(imagenFondo.getImage(),0,0,tamanio.width, tamanio.height, null);
+        setOpaque(false);
+        super.paintComponent(g);
+    }
 }
 

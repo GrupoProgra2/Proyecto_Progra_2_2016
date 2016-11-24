@@ -40,7 +40,12 @@ public class Player {
         String psswd= JOptionPane.showInputDialog(null, "Ingrese su contraseña actual");
         if (Player.userlogged.getPsswd().equals(psswd)){
             String pssw= JOptionPane.showInputDialog(null, "Ingrese su contraseña nueva");
+            if (psswd.length()==5){
             this.contrasena=pssw;
+            } else {
+                JOptionPane.showMessageDialog(null, "El password debe tener exactamente 5 caracteres. Intente de nuevo");
+                this.setPsswd();
+            }
         }
     }
     public void setPuntos(int points){        
@@ -75,9 +80,10 @@ public class Player {
     }
        
     public void crearPlayer() {
+       try{
         String name= JOptionPane.showInputDialog(null, "Ingrese su nombre");
         String psswd= JOptionPane.showInputDialog(null, "Ingrese su contraseña");
-        if (psswd.length()<6){
+        if (psswd.length()==5){
         boolean existe=false;
         for (int i = 0; i < contplayers; i++) { 
             if (name.equals(jugadores[i].getNombre())) {
@@ -94,9 +100,11 @@ public class Player {
             this.crearPlayer();
         }
         } else {
-            JOptionPane.showMessageDialog(null, "El password es muy largo. Intente de nuevo");
+            JOptionPane.showMessageDialog(null, "El password debe tener exactamente 5 caracteres. Intente de nuevo");
             this.crearPlayer();
-        } 
+        } } catch (NullPointerException e){
+            
+        }
     }
     public boolean loginPlayer() {
         String name= JOptionPane.showInputDialog(null, "Ingrese su nombre");

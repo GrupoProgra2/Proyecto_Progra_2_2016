@@ -14,7 +14,7 @@ public class Home {
     public static void main(String[] args) {
         JFrame menuI= new JFrame("ESTRATEGO MARVEL");
         menuI.setSize(500, 500);
-        menuI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        menuI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
       
         JPanel panel = new JPanel();
 		menuI.add(panel);

@@ -12,15 +12,19 @@ import javax.swing.*;
 public class Home {
     
     public static void main(String[] args) {
-        JFrame menuI= new JFrame("ESTRATEGO MARVEL");
-        menuI.setSize(500, 500);
-        menuI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-      
         JPanel panel = new JPanel();
-		menuI.add(panel);
-		placeComponents(panel);
-         
-                menuI.setVisible(true);
+        JLabel label = new JLabel("Enter a password:");
+        JPasswordField pass = new JPasswordField(10);
+        panel.add(label);
+        panel.add(pass);
+        String[] options = new String[]{"OK", "Cancel"};
+        int option = JOptionPane.showOptionDialog(null, panel, "The title",
+                         JOptionPane.NO_OPTION, JOptionPane.PLAIN_MESSAGE,
+                         null, options, options[1]);
+        if(option == 0) // pressing OK button
+        {
+            char[] password = pass.getPassword();
+        }
     }
     
     private static void placeComponents(JPanel panel) {

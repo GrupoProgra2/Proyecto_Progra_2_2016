@@ -5,7 +5,10 @@
  */
 package Proyecto;
 
+import static Proyecto.Player.contplayers;
+import static Proyecto.Player.jugadores;
 import java.awt.BorderLayout;
+import java.io.File;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
@@ -15,7 +18,7 @@ import javax.swing.border.EmptyBorder;
  * @author Justm
  */
 public class MenuPrincipal extends javax.swing.JFrame {
-     
+    
     Player ul= Player.userlogged;
     /**
      * Creates new form MenuPrincipal
@@ -72,6 +75,45 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
+        jDialog1 = new javax.swing.JDialog();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jCheckBoxHeroes = new javax.swing.JCheckBox();
+        jCheckBoxVillanos = new javax.swing.JCheckBox();
+        jButton19 = new javax.swing.JButton();
+        jFrameRank = new javax.swing.JFrame();
+        jLabel14 = new javax.swing.JLabel();
+        jLabelRank = new javax.swing.JLabel();
+        jButton21 = new javax.swing.JButton();
+        jFrameBatallas = new javax.swing.JFrame();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jButton20 = new javax.swing.JButton();
+        jLabelUA = new javax.swing.JLabel();
+        jLabelUH = new javax.swing.JLabel();
+        jLabelPa = new javax.swing.JLabel();
+        jLabelPH = new javax.swing.JLabel();
+        jLabelPV = new javax.swing.JLabel();
+        jFrameCargarPartida = new javax.swing.JFrame();
+        jLabel21 = new javax.swing.JLabel();
+        jButton22 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jFrameEliminarPArtida = new javax.swing.JFrame();
+        jLabelEL = new javax.swing.JLabel();
+        jButton24 = new javax.swing.JButton();
+        jButton25 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -85,6 +127,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jButton9.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
         jButton9.setText("NUEVA PARTIDA");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton9MousePressed(evt);
+            }
+        });
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -101,6 +148,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jButton11.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
         jButton11.setText("ELIMINAR PARTIDA");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton11MousePressed(evt);
+            }
+        });
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -446,6 +498,385 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addGap(48, 48, 48))
         );
 
+        jDialog1.setSize(new java.awt.Dimension(500, 300));
+
+        jComboBox1.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
+        jLabel11.setText("NUEVA PARTIDA");
+
+        jLabel12.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabel12.setText("ESCOGE UN CONTRICANTE:");
+
+        jLabel13.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabel13.setText("¿HEROES O VILLANOS?");
+
+        jCheckBoxHeroes.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jCheckBoxHeroes.setText("HEROES");
+        jCheckBoxHeroes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCheckBoxHeroesMousePressed(evt);
+            }
+        });
+        jCheckBoxHeroes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxHeroesActionPerformed(evt);
+            }
+        });
+
+        jCheckBoxVillanos.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jCheckBoxVillanos.setText("VILLANOS");
+        jCheckBoxVillanos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCheckBoxVillanosMousePressed(evt);
+            }
+        });
+
+        jButton19.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jButton19.setText("¡JUGAR!");
+        jButton19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton19MousePressed(evt);
+            }
+        });
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton19)
+                            .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel13)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDialog1Layout.createSequentialGroup()
+                                    .addComponent(jCheckBoxHeroes)
+                                    .addGap(67, 67, 67))))
+                        .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jCheckBoxVillanos))
+                            .addGroup(jDialog1Layout.createSequentialGroup()
+                                .addGap(44, 44, 44)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jDialog1Layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel11)))
+                .addContainerGap(74, Short.MAX_VALUE))
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDialog1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addGap(16, 16, 16)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addComponent(jLabel13)
+                .addGap(7, 7, 7)
+                .addGroup(jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jCheckBoxVillanos)
+                    .addComponent(jCheckBoxHeroes))
+                .addGap(18, 18, 18)
+                .addComponent(jButton19)
+                .addContainerGap(174, Short.MAX_VALUE))
+        );
+
+        jFrameRank.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrameRank.setSize(new java.awt.Dimension(300, 500));
+
+        jLabel14.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
+        jLabel14.setText("RANKING");
+
+        jLabelRank.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabelRank.setText("jLabel15");
+
+        jButton21.setFont(new java.awt.Font("Felix Titling", 1, 14)); // NOI18N
+        jButton21.setText("ATRAS");
+        jButton21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton21MousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jFrameRankLayout = new javax.swing.GroupLayout(jFrameRank.getContentPane());
+        jFrameRank.getContentPane().setLayout(jFrameRankLayout);
+        jFrameRankLayout.setHorizontalGroup(
+            jFrameRankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameRankLayout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addGroup(jFrameRankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelRank)
+                    .addGroup(jFrameRankLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jButton21)))
+                .addContainerGap(205, Short.MAX_VALUE))
+        );
+        jFrameRankLayout.setVerticalGroup(
+            jFrameRankLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameRankLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel14)
+                .addGap(35, 35, 35)
+                .addComponent(jLabelRank)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 166, Short.MAX_VALUE)
+                .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        jFrameBatallas.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jFrameBatallas.setSize(new java.awt.Dimension(400, 400));
+
+        jLabel15.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
+        jLabel15.setText("BATALLAS");
+
+        jLabel16.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabel16.setText("USUARIOS ACTIVOS:");
+
+        jLabel17.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabel17.setText("USUARIOS CREADOS:");
+
+        jLabel18.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabel18.setText("PARTIDAS JUGADAS:");
+
+        jLabel19.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabel19.setText("PARTIDAS GANADAS HEROÉS:");
+
+        jLabel20.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jLabel20.setText("PARTIDAS GANADAS VILLANOS:");
+
+        jButton20.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jButton20.setText("REGRESAR");
+        jButton20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButton20MousePressed(evt);
+            }
+        });
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jLabelUA.setFont(new java.awt.Font("Felix Titling", 1, 16)); // NOI18N
+        jLabelUA.setText("jLabel21");
+
+        jLabelUH.setFont(new java.awt.Font("Felix Titling", 1, 16)); // NOI18N
+        jLabelUH.setText("jLabel22");
+
+        jLabelPa.setFont(new java.awt.Font("Felix Titling", 1, 16)); // NOI18N
+        jLabelPa.setText("jLabel23");
+
+        jLabelPH.setFont(new java.awt.Font("Felix Titling", 1, 16)); // NOI18N
+        jLabelPH.setText("jLabel24");
+
+        jLabelPV.setFont(new java.awt.Font("Felix Titling", 1, 16)); // NOI18N
+        jLabelPV.setText("jLabel25");
+
+        javax.swing.GroupLayout jFrameBatallasLayout = new javax.swing.GroupLayout(jFrameBatallas.getContentPane());
+        jFrameBatallas.getContentPane().setLayout(jFrameBatallasLayout);
+        jFrameBatallasLayout.setHorizontalGroup(
+            jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jFrameBatallasLayout.createSequentialGroup()
+                .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel20))
+                    .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel16))
+                    .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel17))
+                    .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel18))
+                    .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel19))
+                    .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(jButton20)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPH)
+                    .addComponent(jLabelPV)
+                    .addComponent(jLabelPa)
+                    .addComponent(jLabelUH)
+                    .addComponent(jLabelUA))
+                .addGap(34, 34, 34))
+            .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                .addGap(124, 124, 124)
+                .addComponent(jLabel15)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jFrameBatallasLayout.setVerticalGroup(
+            jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameBatallasLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel15)
+                .addGap(18, 18, 18)
+                .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jLabelUA))
+                .addGap(18, 18, 18)
+                .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(jLabelUH))
+                .addGap(18, 18, 18)
+                .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelPa, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel18)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(jLabelPH))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jFrameBatallasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabelPV))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton20)
+                .addContainerGap(116, Short.MAX_VALUE))
+        );
+
+        jFrameCargarPartida.setSize(new java.awt.Dimension(400, 400));
+
+        jLabel21.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
+        jLabel21.setText("CARGAR PARTIDA");
+
+        jButton22.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jButton22.setText("CARGAR");
+
+        jButton23.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jButton23.setText("CANCELAR");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jList2);
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jFrameCargarPartidaLayout = new javax.swing.GroupLayout(jFrameCargarPartida.getContentPane());
+        jFrameCargarPartida.getContentPane().setLayout(jFrameCargarPartidaLayout);
+        jFrameCargarPartidaLayout.setHorizontalGroup(
+            jFrameCargarPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameCargarPartidaLayout.createSequentialGroup()
+                .addGroup(jFrameCargarPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jFrameCargarPartidaLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton22)
+                        .addGap(47, 47, 47)
+                        .addComponent(jButton23))
+                    .addGroup(jFrameCargarPartidaLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(jFrameCargarPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane3)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(49, Short.MAX_VALUE))
+        );
+        jFrameCargarPartidaLayout.setVerticalGroup(
+            jFrameCargarPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameCargarPartidaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel21)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addGroup(jFrameCargarPartidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton22)
+                    .addComponent(jButton23))
+                .addGap(42, 42, 42))
+        );
+
+        jFrameEliminarPArtida.setSize(new java.awt.Dimension(400, 400));
+
+        jLabelEL.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
+        jLabelEL.setText("eliminar PARTIDA");
+
+        jButton24.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jButton24.setText("eliminar");
+
+        jButton25.setFont(new java.awt.Font("Felix Titling", 1, 18)); // NOI18N
+        jButton25.setText("CANCELAR");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout jFrameEliminarPArtidaLayout = new javax.swing.GroupLayout(jFrameEliminarPArtida.getContentPane());
+        jFrameEliminarPArtida.getContentPane().setLayout(jFrameEliminarPArtidaLayout);
+        jFrameEliminarPArtidaLayout.setHorizontalGroup(
+            jFrameEliminarPArtidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameEliminarPArtidaLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jButton24)
+                .addGap(34, 34, 34)
+                .addComponent(jButton25)
+                .addContainerGap(43, Short.MAX_VALUE))
+            .addGroup(jFrameEliminarPArtidaLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(jFrameEliminarPArtidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jLabelEL, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jFrameEliminarPArtidaLayout.setVerticalGroup(
+            jFrameEliminarPArtidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jFrameEliminarPArtidaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabelEL)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jFrameEliminarPArtidaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton24)
+                    .addComponent(jButton25))
+                .addContainerGap(69, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("STRATEGO MARVEL");
 
@@ -640,21 +1071,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7MousePressed
 
     private void jButton5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MousePressed
+       int x=JOptionPane.showConfirmDialog(this, "¿Desea cerrar sesión?");    
+       if (x==0){
         Player.userlogged=null;
         ul= null;
         this.setVisible(false);
         MenuInicial.m.setVisible(true);
+        (new Player()).setFile();
+       } else if (x==1){
+           JOptionPane.showMessageDialog(this, "Tenga buen día");
+       }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5MousePressed
 
     private void jButton10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MousePressed
-        JOptionPane.showMessageDialog(null,"¡CARGAR PARTIDA PROXIMAMENTE ESTARÁ DISPONIBLE!");
+        File f= new File(Player.userlogged.getNombre()+"/partidas");
+        if (f.length()==0){
+             JOptionPane.showMessageDialog(null,"¡NO HAY PARTIDAS DISPONIBLES!");
+        } else{
+            this.jFrameCargarPartida.setVisible(true);
+            this.jFrameMenuJuego.setVisible(false);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10MousePressed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-    JOptionPane.showMessageDialog(null,"¡ELIMINAR PARTIDA PROXIMAMENTE ESTARÁ DISPONIBLE!");
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MousePressed
@@ -668,17 +1110,32 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8MousePressed
 
     private void jButton12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MousePressed
-    JOptionPane.showMessageDialog(null,"¡ELIMINAR CUENTA PROXIMAMENTE ESTARÁ DISPONIBLE!");
+    ul.eliminarCuenta();
+    this.jFrameMiPerfil.setVisible(false);
+    MenuInicial m= new MenuInicial();
+    this.setVisible(false);
+    m.setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12MousePressed
 
     private void jButton13MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MousePressed
-        JOptionPane.showMessageDialog(null,"¡RANKING PROXIMAMENTE ESTARÁ DISPONIBLE!");
+        
+        Marvel t= new Marvel();
+        this.jLabelRank.setText(t.message);
+        this.jFrameRank.setVisible(true);
+        this.jFrameUniverso.setVisible(false);
+        
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton13MousePressed
 
     private void jButton14MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton14MousePressed
-        JOptionPane.showMessageDialog(null,"¡BATALLAS PROXIMAMENTE ESTARÁ DISPONIBLE!");
+       this.jLabelUA.setText(Marvel.userA+"");
+       this.jLabelUH.setText(Marvel.userH+"");
+       this.jLabelPa.setText(Marvel.partidas+"");
+       this.jLabelPH.setText(Marvel.cuantosBuenos+"");
+       this.jLabelPV.setText(Marvel.cuantosMalos+"");
+       this.jFrameBatallas.setVisible(true);
+       this.jFrameUniverso.setVisible(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton14MousePressed
 
@@ -691,6 +1148,88 @@ public class MenuPrincipal extends javax.swing.JFrame {
         this.jCheckBoxClasico.setSelected(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBoxTutorialMousePressed
+
+    private void jButton9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MousePressed
+       if (contplayers==1){
+           JOptionPane.showMessageDialog(null, "Necesita crear al menos otro jugador para acceder a esta opcion");
+       } else{
+        this.setComboBox();
+        this.jDialog1.setVisible(true);
+        
+       }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9MousePressed
+
+    private void jCheckBoxHeroesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxHeroesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxHeroesActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        Player user= new Player();
+        user.getPlayer2(this.jComboBox1.getSelectedItem().toString());
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jCheckBoxHeroesMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxHeroesMousePressed
+        Jugar.heroes=1;  
+        Jugar.villanos=2;
+        this.jCheckBoxVillanos.setSelected(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxHeroesMousePressed
+
+    private void jCheckBoxVillanosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCheckBoxVillanosMousePressed
+        Jugar.heroes=2;
+        Jugar.villanos=1;  
+        this.jCheckBoxHeroes.setSelected(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBoxVillanosMousePressed
+
+    private void jButton19MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton19MousePressed
+        MainFrame j= new MainFrame();
+        Jugar g= new Jugar();
+        j.setVisible(true);
+        this.setVisible(false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton19MousePressed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton21MousePressed
+        this.jFrameRank.setVisible(false);
+        this.jFrameUniverso.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton21MousePressed
+
+    private void jButton20MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton20MousePressed
+        this.jFrameBatallas.setVisible(false);
+        this.jFrameUniverso.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20MousePressed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MousePressed
+        File f= new File(Player.userlogged.getNombre()+"/partidas");
+        if (f.length()==0){
+             JOptionPane.showMessageDialog(null,"¡NO HAY PARTIDAS DISPONIBLES!");
+        } else{
+            this.jFrameEliminarPArtida.setVisible(true);
+            this.jFrameMenuJuego.setVisible(false);
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11MousePressed
         ;
         
     /**
@@ -739,7 +1278,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -748,14 +1294,35 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JCheckBox jCheckBoxClasico;
+    private javax.swing.JCheckBox jCheckBoxHeroes;
     private javax.swing.JCheckBox jCheckBoxTutorial;
+    private javax.swing.JCheckBox jCheckBoxVillanos;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JFrame jFrameBatallas;
+    private javax.swing.JFrame jFrameCargarPartida;
     private javax.swing.JFrame jFrameConfig;
+    private javax.swing.JFrame jFrameEliminarPArtida;
     private javax.swing.JFrame jFrameMenuJuego;
     private javax.swing.JFrame jFrameMiPerfil;
+    private javax.swing.JFrame jFrameRank;
     private javax.swing.JFrame jFrameUniverso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -763,11 +1330,36 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelEL;
+    private javax.swing.JLabel jLabelPH;
+    private javax.swing.JLabel jLabelPV;
+    private javax.swing.JLabel jLabelPa;
+    private javax.swing.JLabel jLabelRank;
+    private javax.swing.JLabel jLabelUA;
+    private javax.swing.JLabel jLabelUH;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel jlHeroes;
     private javax.swing.JLabel jlPartidas;
     private javax.swing.JLabel jlPuntos;
     private javax.swing.JLabel jlUser;
     private javax.swing.JLabel jlVillanos;
     // End of variables declaration//GEN-END:variables
+
+public void setComboBox(){
+    if (contplayers>0){
+    for (Player i: Player.jugadores) { 
+        if (i!=null){
+        this.jComboBox1.addItem(i.getNombre());
+        }
+    }
+    }
+} 
+
+
+
+
 }

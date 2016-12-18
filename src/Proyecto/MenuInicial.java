@@ -6,6 +6,7 @@
 package Proyecto;
 
 import java.awt.BorderLayout;
+import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
@@ -17,6 +18,9 @@ import javax.swing.border.EmptyBorder;
 public class MenuInicial extends javax.swing.JFrame {
      Player user=new Player();
      static MenuInicial m;
+     static MenuPrincipal p;
+     static String userText;
+     static char[] passText= new char[5];
     /**
      * Creates new form MenuInicial
      */
@@ -24,7 +28,7 @@ public class MenuInicial extends javax.swing.JFrame {
          this.jPanel1= new PanelImagen("/imagenes/Background.jpg");
          this.setContentPane(this.jPanel1);
         initComponents(); 
-       
+        user.getFile();
         
     }
 
@@ -37,9 +41,159 @@ public class MenuInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JFrameLogin = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jtUserL = new javax.swing.JTextField();
+        jpPassL = new javax.swing.JPasswordField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jbuttonGoL = new javax.swing.JButton();
+        JFrameRegister = new javax.swing.JFrame();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jtUserR = new javax.swing.JTextField();
+        jpPassR = new javax.swing.JPasswordField();
+        jbuttonGoR = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+
+        JFrameLogin.setSize(new java.awt.Dimension(350, 250));
+
+        jLabel1.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
+        jLabel1.setText("LOGIN");
+
+        jtUserL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtUserLActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Username:");
+
+        jLabel3.setText("Password:");
+
+        jbuttonGoL.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jbuttonGoL.setText("Go!");
+        jbuttonGoL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jbuttonGoLMousePressed(evt);
+            }
+        });
+        jbuttonGoL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonGoLActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JFrameLoginLayout = new javax.swing.GroupLayout(JFrameLogin.getContentPane());
+        JFrameLogin.getContentPane().setLayout(JFrameLoginLayout);
+        JFrameLoginLayout.setHorizontalGroup(
+            JFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JFrameLoginLayout.createSequentialGroup()
+                .addGroup(JFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JFrameLoginLayout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jLabel1))
+                    .addGroup(JFrameLoginLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(JFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
+                        .addGroup(JFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jtUserL)
+                            .addComponent(jpPassL, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(JFrameLoginLayout.createSequentialGroup()
+                        .addGap(112, 112, 112)
+                        .addComponent(jbuttonGoL)))
+                .addContainerGap(106, Short.MAX_VALUE))
+        );
+        JFrameLoginLayout.setVerticalGroup(
+            JFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JFrameLoginLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(JFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jtUserL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(JFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jpPassL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addComponent(jbuttonGoL)
+                .addContainerGap(118, Short.MAX_VALUE))
+        );
+
+        JFrameRegister.setSize(new java.awt.Dimension(350, 250));
+
+        jLabel4.setFont(new java.awt.Font("Felix Titling", 1, 24)); // NOI18N
+        jLabel4.setText("REGISTER");
+
+        jLabel5.setText("Username");
+
+        jLabel6.setText("Password");
+
+        jtUserR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtUserRActionPerformed(evt);
+            }
+        });
+
+        jbuttonGoR.setFont(new java.awt.Font("Felix Titling", 0, 18)); // NOI18N
+        jbuttonGoR.setText("GO!");
+        jbuttonGoR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jbuttonGoRMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout JFrameRegisterLayout = new javax.swing.GroupLayout(JFrameRegister.getContentPane());
+        JFrameRegister.getContentPane().setLayout(JFrameRegisterLayout);
+        JFrameRegisterLayout.setHorizontalGroup(
+            JFrameRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JFrameRegisterLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(88, 88, 88))
+            .addGroup(JFrameRegisterLayout.createSequentialGroup()
+                .addGroup(JFrameRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JFrameRegisterLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(JFrameRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(JFrameRegisterLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(jtUserR))
+                            .addGroup(JFrameRegisterLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(18, 18, 18)
+                                .addComponent(jpPassR, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(JFrameRegisterLayout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(jbuttonGoR)))
+                .addContainerGap(70, Short.MAX_VALUE))
+        );
+        JFrameRegisterLayout.setVerticalGroup(
+            JFrameRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JFrameRegisterLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(JFrameRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jtUserR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(JFrameRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jpPassR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jbuttonGoR)
+                .addContainerGap(83, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ESTRATEGO MARVEL");
@@ -60,6 +214,11 @@ public class MenuInicial extends javax.swing.JFrame {
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jButton1MousePressed(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -102,20 +261,65 @@ public class MenuInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MousePressed
-        user.crearPlayer();        
+        this.JFrameRegister.setVisible(true);
+        this.setVisible(false);       
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MousePressed
 
     private void jButton1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MousePressed
         // TODO add your handling code here:
-        if (user.loginPlayer()){
-            MenuPrincipal m = new MenuPrincipal();
-            m.setVisible(true);
+        this.JFrameLogin.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_jButton1MousePressed
+
+    private void jtUserLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtUserLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtUserLActionPerformed
+
+    private void jtUserRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtUserRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtUserRActionPerformed
+
+    private void jbuttonGoLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonGoLActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbuttonGoLActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jbuttonGoLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbuttonGoLMousePressed
+        userText=this.jtUserL.getText();
+        passText=this.jpPassL.getPassword();
+        if (user.loginPlayer(userText, this.jpPassL.getPassword())){
+            p = new MenuPrincipal();
+            p.setVisible(true);
+            this.JFrameLogin.setVisible(false);
             this.setVisible(false);
         } else {
-            JOptionPane.showMessageDialog(null, "No se pudo iniciar sesion. Verifique el nombre de usuario o su contraseña y vuelva intentar. \nSi aun no se ha registrado, porfavor registre su cuenta primero.");
+          JOptionPane.showMessageDialog(null, "No se pudo iniciar sesion. Verifique el nombre de usuario o su contraseña y vuelva intentar. \nSi aun no se ha registrado, porfavor registre su cuenta primero.");
+          this.JFrameLogin.setVisible(false);
+          this.setVisible(true);
         }
-    }//GEN-LAST:event_jButton1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbuttonGoLMousePressed
+
+    private void jbuttonGoRMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbuttonGoRMousePressed
+       userText=this.jtUserR.getText();
+       passText=this.jpPassR.getPassword();
+       if(user.crearPlayer1(userText, passText)){
+           this.JFrameRegister.setVisible(false);
+           p = new MenuPrincipal();
+           p.setVisible(true);
+           this.setVisible(false);
+       } else {
+          this.JFrameRegister.setVisible(false);
+          this.setVisible(true);
+       }
+       
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbuttonGoRMousePressed
     /**
      * @param args the command line arguments
      */
@@ -148,13 +352,29 @@ public class MenuInicial extends javax.swing.JFrame {
             public void run() {
                  m= new MenuInicial();
                  m.setVisible(true);
+   
+                                 
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JFrame JFrameLogin;
+    private javax.swing.JFrame JFrameRegister;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton jbuttonGoL;
+    private javax.swing.JButton jbuttonGoR;
+    private javax.swing.JPasswordField jpPassL;
+    private javax.swing.JPasswordField jpPassR;
+    private javax.swing.JTextField jtUserL;
+    private javax.swing.JTextField jtUserR;
     // End of variables declaration//GEN-END:variables
 }
